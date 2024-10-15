@@ -1,8 +1,8 @@
 import { user } from "../fixtures/user";
 
-describe('Usuário', () => {
+describe('Página de Cadastro', () => {
 
-  before.skip('Cadastra um usuário', () => {
+  it('Deve preencher os campos do formulário corretamente para cadastrar um novo usuário', () => {
 
     // Visita a página principal do AdoPet
     cy.visit('https://adopet-frontend-cypress.vercel.app/')
@@ -33,23 +33,5 @@ describe('Usuário', () => {
 
   })
 
-  beforeEach.skip('Realiza login', () => {
-
-    // Visita a página de login do AdoPet
-    cy.visit('https://adopet-frontend-cypress.vercel.app/login')
-
-    // Preenche o campo E-mail
-    cy.get('input[name="email"]').type(user.email)
-    
-    // Preenche o campo Senha
-    cy.get('input[name="password"]').type(user.password)
-
-    // Clica no botão Entrar
-    cy.contains('Entrar').click();
-
-    // Verifica se a nova página foi carregada
-    cy.url().should('include', '/home');
-
-  })
 
 })
